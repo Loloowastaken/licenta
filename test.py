@@ -26,9 +26,15 @@ print(nagisa.stopwords)
 
 tagger = Tagger('-Owakati')
 text2 = "麩菓子は、麩を主材料とした日本の菓子"
+text3 = "私、貴方、君、彼、彼女。! ?! ? @ - +　　　　ああああ" # pt a identifica lemele simbolurilor auxiliare, simbolurilor, spatiilor
 tagger.parse(text2) # 麩 菓子 は 、麩 を 主材 料 と し た 日本 の 菓子
 for word in tagger(text2):
+    print(word, word.feature.lemma, word.pos, sep='\t')
+tagger.parse(text3)
+for word in tagger(text3):
     print(word, word.feature.lemma, word.pos, sep='\t') 
+
+
 
 
 #testare ca vede tokenul wanikani
