@@ -27,13 +27,16 @@ print(nagisa.stopwords)
 tagger = Tagger('-Owakati')
 text2 = "麩菓子は、麩を主材料とした日本の菓子"
 text3 = "私、貴方、君、彼、彼女。! ?! ? @ - +　　　　ああああ" # pt a identifica lemele simbolurilor auxiliare, simbolurilor, spatiilor
+text4 = "全く出来なかった。何を知りたいか、どういう書くべきか、何度も繰り返せなければならない。は　な　や　を　へ　に、1，2、田中、虫比呂"
 tagger.parse(text2) # 麩 菓子 は 、麩 を 主材 料 と し た 日本 の 菓子
 for word in tagger(text2):
     print(word, word.feature.lemma, word.pos, sep='\t')
 tagger.parse(text3)
 for word in tagger(text3):
     print(word, word.feature.lemma, word.pos, sep='\t') 
-
+tagger.parse(text4)
+for word in tagger(text4):
+    print("this is word: ", word, "this is lemma: ", word.feature.lemma, "this is orthbase: ", word.feature.orthBase, "this is pos: ", word.pos, sep='\t') 
 
 
 
